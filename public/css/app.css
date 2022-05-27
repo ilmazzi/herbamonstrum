@@ -1,0 +1,228 @@
+@font-face {
+    font-family: "latoRegular";
+    src: url("../webfonts/lato/Lato-Regular.ttf");
+}
+
+
+
+html * {
+    font-family: "latoRegular";
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    border-color:#F6B830;
+    
+}
+.container{ 
+    margin-top: 15px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.tavoloSelezionato {
+    background-color: lightgreen !important;
+}
+#intro {
+    background-image: url("../img/bg.jpg");
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ct-series-a .ct-slice-pie {
+    /* fill of the pie slieces */
+    fill:lightgreen !important;
+    /* give your pie slices some outline or separate them visually by using the background color here */
+    stroke: white;
+    /* outline width */
+    stroke-width: 4px;
+}
+
+/* DATA TABLE CSS */
+
+table>thead>tr>th{
+    background-color: #F6B830 !important;
+}
+
+tr.even td {
+    background-color: #D0F4EA !important;
+
+}
+tr.odd td {
+    background-color: #ffffff !important;
+
+}
+table{
+    width: 100%;
+    --bs-table-hover-bg: #D0F4EA !important;
+
+}
+
+.btn-light{
+    background-color: #153243;
+    color: #ffffff;
+}
+.accordion-body{
+  padding-top: 5px;
+}
+
+.orarioOccupato{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #dc3545;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+
+.orarioLibero{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #22C997;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+
+.orarioSemiVuoto{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #FFC108;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+
+.orarioSemiPieno{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #ff812d;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+.orarioVuoto{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+.testoRosso{
+    color:#dc3545 ;
+}
+.btn-prenota{
+    margin: 5px;
+}
+#tavoli{
+    margin-top: 10px;
+}
+
+
+.prenotazione{
+  border: 1px #212529 solid;
+}
+
+.list-group-item {
+    user-select: none;
+    
+  }
+  .list-group-item {
+   margin: 0px !important;
+    
+  }
+  
+  
+  .list-group input[type="checkbox"] {
+    display: none;
+  }
+  
+  .list-group input[type="checkbox"] + .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group input[type="checkbox"] + .list-group-item:before {
+    content: "\2713";
+    color: transparent;
+    font-weight: bold;
+    margin-right: 1em;
+  }
+  
+  .list-group input[type="checkbox"]:checked + .list-group-item {
+    background-color: lightgreen;
+    font-weight: bold;
+  }
+  
+  .list-group input[type="checkbox"]:checked + .list-group-item:before {
+    color: inherit;
+  }
+  
+  .list-group input[type="radio"] {
+    display: none;
+  }
+  
+  .list-group input[type="radio"] + .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group input[type="radio"] + .list-group-item:before {
+    content: "\2022";
+    color: transparent;
+    font-weight: bold;
+    margin-right: 1em;
+  }
+  
+  .list-group input[type="radio"]:checked + .list-group-item {
+    background-color: lightgreen;
+    color: #FFF;
+  }
+  
+  .list-group input[type="radio"]:checked + .list-group-item:before {
+    color: inherit;
+  }
+  .offcanvas-backdrop
+  {
+      opacity:0.5 !important;
+  }
