@@ -124,6 +124,7 @@
 @isset($dataPrenotazione)
 
 <script type="text/javascript">
+  
 
 function convertDate(inputFormat) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
@@ -136,6 +137,7 @@ function convertDate(inputFormat) {
     var ora ="{{ $oraInizio }}";
    
     $(document).ready(function() {
+     
  
     $('#dataPrenotazione').val(convertDate(langs));
     let oraPrenotazione = new Date(convertDate(langs));
@@ -143,34 +145,7 @@ function convertDate(inputFormat) {
     $.ajax({
                     url: "/orari/"+$('#sala').val(),
                     success: function(result){
-                        function cercaTavoli(){
-        let dataPrenotazione = $('#dataPrenotazione').val();
-        let oraInizio = $('#oraInizio').val();
-        let sala = $("#sala").val();
-        $('#tavoli').empty();
-        if($('#oraInizio').val() != ""){
-            let dataPrenotazione = $('#dataPrenotazione').val();
-            let oraInizio = $('#oraInizio').val();
-            let coperti = $('#coperti').val();
-            $.ajax({
-                url: "/tavoli/"+dataPrenotazione+"/"+oraInizio+"/"+sala,
-                success: function(result){
-                    
-                    $(result).each(function (i, tavolo){
-                        console.log(tavolo);
-                        $('#tavoli').append('<input name="tavoli[]" type="checkbox" value="'+tavolo.idTavolo+'" id="'+tavolo.idTavolo+'">' +
-                                            '<label class="list-group-item" for="'+tavolo.idTavolo+'">'+ tavolo.descrizione+' - Capienza: '+tavolo.postiRimanenti +'\n</label>');
-
-                    
-                    })
-                },
-                error: function (exception){
-                    console.log(exception);
-                }
-    
-            });
-        }
-    }
+                      
 
                         $(result).each(function (i, orario){
                             $('#oraInizio').append(' <option data-idOrario="'+orario.idOrario+'" value="'+orario.orario+'" >' +
@@ -203,7 +178,34 @@ function convertDate(inputFormat) {
 
     $(document).ready(function() {
 
-   
+        function cercaTavoli(){
+        let dataPrenotazione = $('#dataPrenotazione').val();
+        let oraInizio = $('#oraInizio').val();
+        let sala = $("#sala").val();
+        $('#tavoli').empty();
+        if($('#oraInizio').val() != ""){
+            let dataPrenotazione = $('#dataPrenotazione').val();
+            let oraInizio = $('#oraInizio').val();
+            let coperti = $('#coperti').val();
+            $.ajax({
+                url: "/tavoli/"+dataPrenotazione+"/"+oraInizio+"/"+sala,
+                success: function(result){
+                    
+                    $(result).each(function (i, tavolo){
+                        console.log(tavolo);
+                        $('#tavoli').append('<input name="tavoli[]" type="checkbox" value="'+tavolo.idTavolo+'" id="'+tavolo.idTavolo+'">' +
+                                            '<label class="list-group-item" for="'+tavolo.idTavolo+'">'+ tavolo.descrizione+' - Capienza: '+tavolo.postiRimanenti +'\n</label>');
+
+                    
+                    })
+                },
+                error: function (exception){
+                    console.log(exception);
+                }
+    
+            });
+        }
+    }
         
        
         /*************************************
@@ -271,70 +273,7 @@ function convertDate(inputFormat) {
         }
     });
 
-    function cercaTavoli(){
-        let dataPrenotazione = $('#dataPrenotazione').val();
-        let oraInizio = $('#oraInizio').val();
-        let sala = $("#sala").val();
-        $('#tavoli').empty();
-        if($('#oraInizio').val() != ""){
-    let dataPrenotazione = $('#dataPrenotazione').val();
-    let oraInizio = $('#oraInizio').val();
-    let sala = $('#sala').val();
-    let coperti = $('#coperti').val();
-    const selezionati = [];
-    $.ajax({
-        url: "/tavoli/"+dataPrenotazione+"/"+oraInizio+"/"+sala,
-        success: function(tavoli){
 
-
-            $.ajax({
-            url: "/tavoliPerId/"+idPrenotazione+"/"+sala,
-            success: function(occupati){
-               
-            $(occupati).each(function (i, tavolo){
-                selezionati.push( tavolo.idTavolo);
-            })
-            $(tavoli).each(function (i, t){
-              
-                if (selezionati.indexOf(t.idTavolo) !== -1) {
-                    if($("#" +t.idTavolo).length == 0) {
-                        $('#tavoli').append('<input name="tavoli[]" data-rimanenti= '+t.postiRimanenti+' type="checkbox" value="'+t.idTavolo+'" id="'+t.idTavolo+'" checked>' +
-                                            '<label class="list-group-item" id="label'+t.idTavolo+'"  for="'+t.idTavolo+'">'+ t.descrizione+' - Capienza: '+t.postiRimanenti +'\n</label>');
-                    
-                    } else {
-                        let presente = $('#'+t.idTavolo).attr('data-rimanenti');
-                        if (t.postiRimanenti < presente){
-                            $('#'+t.idTavolo).attr('data-rimanenti', t.postiRimanenti);
-                            $('#label'+t.idTavolo).text(t.descrizione+' - Capienza: '+t.postiRimanenti)
-                        }
-                    }
-                    
-
-                } else {
-                    $('#tavoli').append('<input name="tavoli[]" type="checkbox" value="'+t.idTavolo+'" id="'+t.idTavolo+'">' +
-                                            '<label class="list-group-item" for="'+t.idTavolo+'">'+ t.descrizione+' - Capienza: '+t.postiRimanenti +'\n</label>');
-
-                }
-
-               
-
-            })
-        },
-        error: function (exception){
-         
-        }
-
-    });
-
-        },
-        error: function (exception){
-            console.log(exception);
-        }
-
-    });
-    
-}
-    }
     
         $(document).on('click', '#scegliTavoli', function(){
           cercaTavoli();
