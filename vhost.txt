@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+DocumentRoot "C:\xampp\htdocs\magazzino\public"
+DirectoryIndex index.php
+ServerName athena.depascalis
+<Directory "C:\xampp\htdocs\magazzino\public">
+Options Indexes FollowSymLinks MultiViews
+AllowOverride all
+Order Deny,Allow
+Allow from all
+Require all granted
+</Directory>
+</VirtualHost>
